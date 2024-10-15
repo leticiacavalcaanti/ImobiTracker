@@ -5,8 +5,8 @@ from leads.models import Lead
 
 class Negocio(models.Model):
     descricao = models.TextField(null=False, blank=False)
-    Lead = models.ForeignKey('Lead', on_delete=models.CASCADE)
-    Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    lead = models.ForeignKey(Lead, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     dataInclusao= models.DateTimeField(auto_now_add=True)
     previsaoVenda = models.DateField(null=False, blank=False)
     vencimentoAtualizacao = models.DateField(null=False, blank=False)
