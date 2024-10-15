@@ -1,9 +1,8 @@
-from django.http import JsonResponse
+from leads.models import Lead
+from leads.serializers import LeadSerializers
+from rest_framework import viewsets
 
-def leads(request):
-    if request.method == 'GET':
-        lead = {
-            'id': '1',
-            'nome': 'Gabriel'
-        }
-        return JsonResponse(lead)
+class LeadsViewSet(viewsets.ModelViewSet):
+    queryset = Lead.objects.all()
+    serializer_class = LeadSerializers
+
